@@ -1,0 +1,16 @@
+<aside class="aside">
+  <h1 *ngIf="userData.length > 0" class="aside__username">Hi, {{userData[0]?.name}}!</h1>
+  <div class="aside__header">
+    <span>
+       <img src="./assets/images/icons/star.svg" alt="Star icon">
+    </span>
+    <h2 class="aside__heading">Favourite List</h2>
+  </div>
+
+  <ul class="box">
+    <li *ngFor="let item of favouritesList" class="box__item">
+      {{item.name}}
+      <span (click)="changeFilmStatus(item)" class="close"></span>
+    </li>
+  </ul>
+</aside>

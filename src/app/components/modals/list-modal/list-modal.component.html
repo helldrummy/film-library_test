@@ -1,0 +1,32 @@
+<div class="modal-body modal">
+  <button type="button" class="modal__close close" aria-label="Close" (click)="activeModal.dismiss('')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <div class="modal__wrapper">
+    <div class="modal__box modal__image-block">
+      <img class="modal__image" [src]="filmData.img" alt="{{filmData.name}}">
+      <div class="info">
+        <p class="modal__text">Year of release: {{filmData.year}}</p>
+        <span (click)="changeFilmStatus(filmData)" [ngClass]="{'star_checked' : filmData.isFavourite}" class="star">
+          <img src="../../../../assets/images/icons/star.svg" alt="Add to favourites">
+        </span>
+      </div>
+    </div>
+
+    <div class="modal__box">
+      <h4 class="modal__title">{{filmData.name}}</h4>
+      <p class="modal__description">{{filmData.description}}</p>
+    </div>
+  </div>
+
+  <div class="modal__wrapper modal__wrapper_texted">
+    <div class="block-list">
+      <p *ngFor="let genre of filmData.genres" class="block-list__item">{{genre}}</p>
+    </div>
+    <div class="text-block">
+      <p>Director: {{filmData.director}}</p>
+      <p>Starring: {{filmData.starring}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<section class="wrapper row">
+  <section class="list">
+    <div class="list__heading">
+      <h1> Movies Gallery</h1>
+      <span class="switcher">
+        <p class="switcher__text">View as</p>
+        <div>
+          <img class="switcher__button" src="./assets/images/icons/grid.svg"
+               [ngClass]="{'switcher__button_active': isGridView}" (click)="isGridView = true">
+          <img class="switcher__button" src="./assets/images/icons/list.svg"
+               [ngClass]="{'switcher__button_active': !isGridView}" (click)="isGridView = false">
+        </div>
+      </span>
+    </div>
+
+    <div class="list__wrapper" [ngClass]="{'list__wrapper_list-view' : !isGridView}">
+      <app-film-item *ngFor="let item of filmData"
+                     (isModalOpened)="openFilmModal(item)"
+                     (onFavouritesUpdate)="updateFavouritesList($event)"
+                     [isGridView]="isGridView"
+                     [data]="item">
+      </app-film-item>
+    </div>
+  </section>
+
+  <aside class="aside">
+    <app-film-list-aside (onFavouritesUpdate)="updateFavouritesList($event)"></app-film-list-aside>
+  </aside>
+</section>

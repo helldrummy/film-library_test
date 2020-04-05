@@ -1,0 +1,56 @@
+@mixin star-icon($size) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: grey;
+  border-radius: 50%;
+  width: $size + px;
+  height: $size + px;
+
+  &_checked {
+    background: linear-gradient(-45deg, #ee7752, #27e722, #d51e3a, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+  }
+
+  img {
+    width: ($size - 10) + px;
+    height: ($size - 10) + px;
+  }
+}
+
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@mixin purple-gradient() {
+  background: gold;
+  background: -webkit-gradient(left top, right top, color-stop(0%, #e734f7), color-stop(100%, #2737e6));
+  background: linear-gradient(to right, #e734f7 0%, #2737e6 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e734f7", endColorstr="#2737e6", GradientType=1);
+}
+
+
+@mixin limited-text($lines-number) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  /* autoprefixer: ignore next */
+  display: -webkit-box;
+  /* autoprefixer: ignore next */
+  -webkit-line-clamp: $lines-number;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+}

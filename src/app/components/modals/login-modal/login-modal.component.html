@@ -1,0 +1,28 @@
+<div class="modal-body modal">
+  <div class="modal__wrapper">
+    <h2 class="modal__heading">
+      Please enter your Name and Email to continue
+    </h2>
+    <form [formGroup]="formData" (ngSubmit)="onSubmit()" class="modal__box">
+      <div class="modal__input-box">
+        <label for="name">Name</label>
+        <input formControlName="name" placeholder="Enter your name"
+               id="name"
+               required
+               type="text"
+               class="modal__input">
+      </div>
+
+      <div class="modal__input-box">
+        <label for="email">Email</label>
+        <input formControlName="email" placeholder="Enter your email"
+               id="email"
+               required
+               type="email"
+               class="modal__input">
+      </div>
+
+      <button class="modal__submit">Login</button>
+    </form>
+  </div>
+</div>

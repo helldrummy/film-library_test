@@ -1,0 +1,24 @@
+<div class="box" [ngClass]="{'box_list-view' : !isGridView}">
+  <div class="box__click-area" (click)="openModal()">
+    <img src="{{data.img}}" alt="{{data.name}} film" class="box__image">
+    <div class="box__wrapper">
+      <div class="box__main-info">
+        <h2 class="box__name">{{data.name}}</h2>
+        <h3 class="box__year">{{data.year}}</h3>
+      </div>
+      <div *ngIf="!isGridView" class="box__description-wrapper">
+        <p class="box__description">{{data.description}}</p>
+        <p class="box__genres">
+          <span *ngFor="let genre of data.genres">
+            {{genre}}
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <span (click)="changeFilmStatus(data)" [ngClass]="{'box__star_checked' : data.isFavourite}"
+        class="box__star">
+    <img src="./assets/images/icons/star.svg" alt="Add to favourites">
+  </span>
+</div>
